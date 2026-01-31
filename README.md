@@ -1,4 +1,4 @@
-# Oderinde Isaiah Oluwasegun | Portfolio
+# oderindeisaiah.github.io
 
 Aspiring Software Developer | Python & Cybersecurity Fundamentals
 
