@@ -1,106 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oderinde Isaiah Oluwasegun | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0e1021;
-      --bg-card: #161a36;
-      --accent: #7b5cff;
-      --text-main: #f4f6ff;
-      --text-muted: #b4b8d9;
-      --border: #262a55;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oderinde Isaiah Oluwasegun Portfolio</title>
+    <style>
+        /* ===== Reset & Base ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
 
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    body { background: var(--bg); color: var(--text-main); line-height:1.6; }
+        body {
+            background: #12121b; /* dark uniform background */
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
 
-    .container { max-width:1100px; margin:auto; padding:0 24px; }
+        a {
+            color: #ff6b81;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #ff4d6d;
+        }
 
-    header { padding:100px 0 60px; border-bottom:1px solid var(--border); text-align:center; }
-    header h1 { font-size:3rem; font-weight:700; margin-bottom:10px; }
-    header p { color: var(--text-muted); font-size:1.1rem; max-width:700px; margin:auto; }
+        /* ===== Header ===== */
+        header {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1e1e2f, #2c2c3c);
+            position: relative;
+            overflow: hidden;
+        }
 
-    nav { margin-top:30px; display:flex; justify-content:center; gap:36px; }
-    nav a { color: var(--text-muted); text-decoration:none; font-weight:500; position:relative; }
-    nav a::after { content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:var(--accent); transition: width 0.3s; }
-    nav a:hover { color: var(--text-main); }
-    nav a:hover::after { width:100%; }
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
 
-    section { padding:80px 0; border-bottom:1px solid var(--border); }
-    h2 { font-size:1.9rem; margin-bottom:22px; }
-    p { color: var(--text-muted); }
+        .subtitle {
+            font-size: 1.5rem;
+            color: #f0f0f0;
+            height: 30px;
+        }
 
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; margin-top:36px; }
-    .card { background: var(--bg-card); border:1px solid var(--border); padding:26px; border-radius:14px; transition: transform 0.3s ease, border-color 0.3s ease; }
-    .card:hover { transform: translateY(-6px); border-color: var(--accent); }
-    .card h3 { margin-bottom:12px; font-size:1.2rem; }
-    .card a { color: var(--accent); text-decoration:none; font-weight:500; }
-    .card a:hover { text-decoration:underline; }
+        nav {
+            text-align: center;
+            margin-top: 30px;
+        }
 
-    footer { padding:40px 0; text-align:center; font-size:0.9rem; color:var(--text-muted); }
-  </style>
+        nav a {
+            margin: 0 20px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff6b81;
+        }
+
+        /* ===== Sections ===== */
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #ff6b81;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project {
+            background-color: #1e1e2f;
+            padding: 25px;
+            border-radius: 12px;
+            transition: transform 0.4s, box-shadow 0.4s, border 0.4s;
+            position: relative;
+        }
+
+        .project:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.7);
+            border: 1px solid #ff6b81;
+        }
+
+        .project h3 {
+            margin-bottom: 15px;
+        }
+
+        .github-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 14px;
+            background-color: #ff6b81;
+            color: white;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+
+        .github-btn:hover {
+            background-color: #ff4d6d;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #12121b;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* ===== Fade-in ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== Button Styling ===== */
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            background-color: #ff6b81;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff4d6d;
+        }
+
+        /* ===== Smooth font adjustments ===== */
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        p {
+            font-size: 1.05rem;
+        }
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <h1>Oderinde Isaiah Oluwasegun</h1>
-    <p>Aspiring Software Developer | Python & Cybersecurity Fundamentals. Building real-world projects and a strong technical foundation.</p>
+    <header>
+        <h1>Oderinde Isaiah Oluwasegun</h1>
+        <p class="subtitle"></p>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
+    <section id="about" class="fade-in">
+        <h2>About Me</h2>
+        <p>Hi! I'm Oderinde Isaiah Oluwasegun, a cybersecurity enthusiast and Python developer. I build real-world security tools and interactive web projects, demonstrating strong technical skills and clean, professional coding practices.</p>
+    </section>
 
-<main>
-<section id="about">
-  <div class="container">
-    <h2>About Me</h2>
-    <p>Self-driven developer focused on Python and cybersecurity fundamentals. I build small but meaningful projects that demonstrate real coding and security skills.</p>
-  </div>
-</section>
+    <section id="projects" class="fade-in">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <h3>Password Hashing Tool</h3>
+                <p>Secure password hashing and authentication system with persistent storage. SHA-256 hashing and limited login attempts.</p>
+                <a class="github-btn" href="https://github.com/oderindeisaiah/password-hashing-tool" target="_blank">View on GitHub</a>
+            </div>
+            <div class="project">
+                <h3>File Integrity Checker</h3>
+                <p>Monitors files for changes using SHA-256 hashes. Logs all modifications for auditing and security purposes.</p>
+                <a class="github-btn" href="https://github.com/oderindeisaiah/file-integrity-checker" target="_blank">View on GitHub</a>
+            </div>
+            <div class="project">
+                <h3>Login Defender</h3>
+                <p>Protects user accounts from brute-force attacks with login limits, time-based lockouts, and secure password storage.</p>
+                <a class="github-btn" href="https://github.com/oderindeisaiah/login-defender" target="_blank">View on GitHub</a>
+            </div>
+            <div class="project">
+                <h3>Password Auditor</h3>
+                <p>Evaluates password strength, identifies weak credentials, and simulates breach checks locally.</p>
+                <a class="github-btn" href="https://github.com/oderindeisaiah/password-auditor" target="_blank">View on GitHub</a>
+            </div>
+            <div class="project">
+                <h3>Secure Notes Vault</h3>
+                <p>Encrypted local storage for sensitive notes using AES (Fernet). Password-protected access ensures privacy and security.</p>
+                <a class="github-btn" href="https://github.com/oderindeisaiah/secure-notes-vault" target="_blank">View on GitHub</a>
+            </div>
+        </div>
+    </section>
 
-<section id="projects">
-  <div class="container">
-    <h2>Projects</h2>
-    <div class="grid">
+    <section id="contact" class="fade-in">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:isaiaholuwasegunoderinde@gmail.com">isaiaholuwasegunoderinde@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/oderindeisaiah">github.com/oderindeisaiah</a></p>
+    </section>
 
-      <div class="card">
-        <h3>Password Hashing Tool</h3>
-        <p>Secure password authentication system demonstrating hashing and file persistence.</p>
-        <a href="https://github.com/oderindeisaiah/password-hashing-tool" target="_blank">View on GitHub</a>
-      </div>
+    <footer>
+        <p>&copy; 2026 Oderinde Isaiah Oluwasegun</p>
+    </footer>
 
-      <div class="card">
-        <h3>File Integrity Checker</h3>
-        <p>Monitors multiple files for changes using SHA-256 hashing and logs modifications.</p>
-        <a href="https://github.com/oderindeisaiah/file-integrity-checker" target="_blank">View on GitHub</a>
-      </div>
+    <script>
+        // Fade-in on scroll
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const appearOnScroll = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+        faders.forEach(fader => appearOnScroll.observe(fader));
 
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:isaiaholuwasegunoderinde@gmail.com">isaiaholuwasegunoderinde@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/oderindeisaiah" target="_blank">github.com/oderindeisaiah</a></p>
-  </div>
-</section>
-</main>
-
-<footer>
-  &copy; 2026 Oderinde Isaiah Oluwasegun
-</footer>
+        // Typing animation for subtitle
+        const subtitle = document.querySelector('.subtitle');
+        const text = "Cybersecurity Enthusiast & Python Developer";
+        let index = 0;
+        function typeEffect() {
+            if(index < text.length){
+                subtitle.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeEffect, 100);
+            }
+        }
+        typeEffect();
+    </script>
 
 </body>
 </html>
