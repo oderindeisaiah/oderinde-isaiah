@@ -4,15 +4,15 @@
 [![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![Cybersecurity](https://img.shields.io/badge/Cybersecurity-Focused-red?logo=shield)](https://github.com/oderindeisaiah)
 
-Welcome! This is my professional portfolio showcasing **cybersecurity tools** and **Python projects**. Built with **clean code, security, and modern design**.
+Welcome! This is my professional portfolio showcasing **cybersecurity tools** and **Python projects**. Everything is built with **clean code, security, and modern design** principles.
 
 ---
 
 ## 🌐 About This Portfolio
-- Fully responsive dark theme with **uniform colors**
+- Fully responsive dark theme with **uniform colors and gradients**
 - Smooth scrolling and **fade-in animations**
 - Modern typography (**Poppins font**)
-- Interactive project cards with **hover effects and GitHub buttons**
+- Interactive project cards with **hover effects** and GitHub buttons
 - Showcases **real cybersecurity projects** — no toy scripts
 
 ---
@@ -24,7 +24,7 @@ Welcome! This is my professional portfolio showcasing **cybersecurity tools** an
 [![Security](https://img.shields.io/badge/SHA--256-Protection-red?logo=shield)]  
 [![GitHub](https://img.shields.io/badge/GitHub-View-black?logo=github)](https://github.com/oderindeisaiah/password-hashing-tool)  
 
-Secure password authentication system with SHA-256 hashing, limited login attempts, and persistent storage.
+A secure password authentication system using SHA-256 hashing, limited login attempts, and persistent storage.
 
 ---
 
@@ -33,7 +33,7 @@ Secure password authentication system with SHA-256 hashing, limited login attemp
 [![Security](https://img.shields.io/badge/File-Integrity-red?logo=shield)]  
 [![GitHub](https://img.shields.io/badge/GitHub-View-black?logo=github)](https://github.com/oderindeisaiah/file-integrity-checker)  
 
-Monitors files for changes using SHA-256 hashes and logs modifications for auditing.
+Monitors files for changes using SHA-256 hashes and logs modifications for auditing purposes.
 
 ---
 
@@ -42,7 +42,7 @@ Monitors files for changes using SHA-256 hashes and logs modifications for audit
 [![Security](https://img.shields.io/badge/Brute-Force-Proof-red?logo=shield)]  
 [![GitHub](https://img.shields.io/badge/GitHub-View-black?logo=github)](https://github.com/oderindeisaiah/login-defender)  
 
-Protects accounts from brute-force attacks with login limits and secure password storage.
+Protects user accounts from brute-force attacks with login limits, time based logouts, and secure password storage.
 
 ---
 
@@ -79,7 +79,7 @@ Encrypted local storage for sensitive notes using AES (Fernet). Password-protect
 ---
 
 **Portfolio Status:** Professional, modern, fully functional, and live.  
-All projects follow **security best practices** and **demonstrate real-world cybersecurity logic**.
+All projects follow **security best practices** and demonstrate **real-world cybersecurity logic**.
 
 ---
 
