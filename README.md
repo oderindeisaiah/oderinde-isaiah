@@ -1,4 +1,4 @@
-# Oderinde Isaiah Oluwasegun — Portfolio
+# Oderinde_Isaiah_Oluwasegun_Portfolio
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-Live-brightgreen)](https://oderindeisaiah.github.io/) 
 [![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)](https://www.python.org/)
