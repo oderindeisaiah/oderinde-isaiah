@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oderinde Isaiah Oluwasegun Portfolio</title>
+    <title>Oderinde Isaiah Oluwasegun | Cybersecurity Portfolio</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        /* ===== Reset & Base ===== */
+        /* ===== RESET ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         html {
@@ -18,258 +22,256 @@
         }
 
         body {
-            background: #12121b; /* dark uniform background */
-            color: #e0e0e0;
-            line-height: 1.6;
+            background: linear-gradient(180deg, #0f0f17, #12121b);
+            color: #e5e5e5;
+            line-height: 1.7;
         }
 
         a {
-            color: #ff6b81;
             text-decoration: none;
-        }
-        a:hover {
-            color: #ff4d6d;
+            color: inherit;
         }
 
-        /* ===== Header ===== */
+        /* ===== HEADER ===== */
         header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(135deg, #1e1e2f, #2c2c3c);
-            position: relative;
-            overflow: hidden;
+            padding: 40px 20px;
+            background: radial-gradient(circle at top, #1e1e2f, #0f0f17);
         }
 
         header h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #fff;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
         }
 
-        .subtitle {
-            font-size: 1.5rem;
-            color: #f0f0f0;
-            height: 30px;
-        }
-
-        nav {
-            text-align: center;
-            margin-top: 30px;
+        header p {
+            font-size: 1.4rem;
+            color: #b5b5ff;
+            margin-bottom: 40px;
         }
 
         nav a {
-            margin: 0 20px;
+            margin: 0 18px;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: color 0.3s;
+            font-size: 1.05rem;
+            color: #ff6b81;
+            transition: opacity 0.3s;
         }
 
         nav a:hover {
-            color: #ff6b81;
+            opacity: 0.7;
         }
 
-        /* ===== Sections ===== */
+        /* ===== SECTION ===== */
         section {
-            padding: 60px 20px;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: auto;
+            padding: 80px 20px;
         }
 
         section h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
             text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
             color: #ff6b81;
         }
 
+        /* ===== ABOUT ===== */
+        #about p {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #dddddd;
+        }
+
+        /* ===== PROJECTS GRID ===== */
         .projects {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            gap: 30px;
         }
 
         .project {
-            background-color: #1e1e2f;
+            background: linear-gradient(145deg, #1c1c2b, #23233a);
             padding: 25px;
-            border-radius: 12px;
+            border-radius: 14px;
+            border: 1px solid transparent;
             transition: transform 0.4s, box-shadow 0.4s, border 0.4s;
-            position: relative;
         }
 
         .project:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.7);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
             border: 1px solid #ff6b81;
         }
 
         .project h3 {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .project p {
+            font-size: 0.95rem;
+            color: #cccccc;
         }
 
         .github-btn {
             display: inline-block;
-            margin-top: 15px;
-            padding: 8px 14px;
-            background-color: #ff6b81;
-            color: white;
+            margin-top: 18px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            background: #ff6b81;
+            color: #ffffff;
             font-weight: 600;
-            border-radius: 6px;
-            transition: background-color 0.3s;
-            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.3s, transform 0.3s;
         }
 
         .github-btn:hover {
-            background-color: #ff4d6d;
+            background: #ff4d6d;
+            transform: scale(1.05);
         }
 
-        /* ===== Footer ===== */
-        footer {
+        /* ===== CONTACT ===== */
+        #contact p {
             text-align: center;
-            padding: 30px 20px;
-            background-color: #12121b;
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-
-        /* ===== Fade-in ===== */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-
-        .fade-in.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ===== Button Styling ===== */
-        button {
-            padding: 10px 20px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 8px;
-            background-color: #ff6b81;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #ff4d6d;
-        }
-
-        /* ===== Smooth font adjustments ===== */
-        h1, h2, h3 {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        p {
+            margin: 10px 0;
             font-size: 1.05rem;
         }
 
+        #contact a {
+            color: #ff6b81;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+            color: #999999;
+            background: #0f0f17;
+        }
+
+        /* ===== FADE IN ===== */
+        .fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <header>
-        <h1>Oderinde Isaiah Oluwasegun</h1>
-        <p class="subtitle"></p>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+<header>
+    <h1>Oderinde Isaiah Oluwasegun</h1>
+    <p>Cybersecurity Enthusiast & Python Developer</p>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
-    <section id="about" class="fade-in">
-        <h2>About Me</h2>
-        <p>Hi! I'm Oderinde Isaiah Oluwasegun, a cybersecurity enthusiast and Python developer. I build real-world security tools and interactive web projects, demonstrating strong technical skills and clean, professional coding practices.</p>
-    </section>
+<section id="about" class="fade">
+    <h2>About Me</h2>
+    <p>
+        I am a cybersecurity enthusiast and Python developer focused on building real-world
+        defensive security tools. My work emphasizes secure coding practices, threat detection,
+        authentication systems, and blue-team security logic.
+    </p>
+</section>
 
-    <section id="projects" class="fade-in">
-        <h2>Projects</h2>
-        <div class="projects">
-            <div class="project">
-                <h3>Password Hashing Tool</h3>
-                <p>Secure password authentication system with SHA-256 hashing, limited login attempts, and persistent storage.</p>
-                <a class="github-btn" href="https://github.com/oderindeisaiah/password-hashing-tool" target="_blank">View on GitHub</a>
-            </div>
-            <div class="project">
-                <h3>File Integrity Checker</h3>
-                <p>Monitors files for changes using SHA-256 hashes and logs modifications for auditing purposes.</p>
-                <a class="github-btn" href="https://github.com/oderindeisaiah/file-integrity-checker" target="_blank">View on GitHub</a>
-            </div>
-            <div class="project">
-                <h3>Login Defender</h3>
-                <p>Protects user accounts from brute force attacks with login limits, time-based logouts, and secure password storage.</p>
-                <a class="github-btn" href="https://github.com/oderindeisaiah/login-defender" target="_blank">View on GitHub</a>
-            </div>
-            <div class="project">
-                <h3>Password Auditor</h3>
-                <p>Evaluates password strength, identifies weak credentials, and simulates breach checks locally.</p>
-                <a class="github-btn" href="https://github.com/oderindeisaiah/password-auditor" target="_blank">View on GitHub</a>
-            </div>
-            <div class="project">
-                <h3>Secure Notes Vault</h3>
-                <p>Encrypted local storage for sensitive notes using AES (Fernet). Password-protected access ensures privacy and security.</p>
-                <a class="github-btn" href="https://github.com/oderindeisaiah/secure-notes-vault" target="_blank">View on GitHub</a>
-            </div>
-            <div class="project">
-                <h3>Mini_IDS</h3>
-                <p>Detects brute-force attacks and credential stuffing in authentication logs. Alerts are automatically classified by severity: LOW, MEDIUM, HIGH.</p>
-                <a class="github-btn" href="https://github.com/oderindeisaiah/mini-ids" target="_blank">View on GitHub</a>
-            </div>
-            <div class="project">
-                <h3>Security Log Analyzer</h3>
-                <p>Analyzes authentication logs to detect suspicious activity and generate alerts for potential brute-force or malicious login attempts.</p>
-                <a class="github-btn" href="https://github.com/oderindeisaiah/security-log-analyzer" target="_blank">View on GitHub</a>
-            </div>
-            <div class="project">
-                <h3>File Encryptor</h3>
-                <p>Encrypts and decrypts local files securely using modern cryptography, ensuring confidentiality of sensitive data.</p>
-                <a class="github-btn" href="https://github.com/oderindeisaiah/file_encryptor" target="_blank">View on GitHub</a>
-            </div>
+<section id="projects" class="fade">
+    <h2>Projects</h2>
+    <div class="projects">
+
+        <div class="project">
+            <h3>Mini IDS</h3>
+            <p>Lightweight intrusion detection system that identifies brute-force attacks and credential stuffing using log analysis and severity classification.</p>
+            <a class="github-btn" href="https://github.com/oderindeisaiah/mini_ids" target="_blank">View on GitHub</a>
         </div>
-    </section>
 
-    <section id="contact" class="fade-in">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:isaiaholuwasegunoderinde@gmail.com">isaiaholuwasegunoderinde@gmail.com</a></p>
-        <p>GitHub: <a href="https://github.com/oderindeisaiah">github.com/oderindeisaiah</a></p>
-    </section>
+        <div class="project">
+            <h3>Security Log Analyzer</h3>
+            <p>Analyzes authentication logs to detect suspicious activity and generates alerts for potential attacks.</p>
+            <a class="github-btn" href="https://github.com/oderindeisaiah/security_log_analyzer" target="_blank">View on GitHub</a>
+        </div>
 
-    <footer>
-        <p>&copy; 2026 Oderinde Isaiah Oluwasegun</p>
-    </footer>
+        <div class="project">
+            <h3>Secure Notes Vault</h3>
+            <p>Encrypted local notes storage using AES (Fernet) with password-protected access.</p>
+            <a class="github-btn" href="https://github.com/oderindeisaiah/secure-notes-vault" target="_blank">View on GitHub</a>
+        </div>
 
-    <script>
-        // Fade-in on scroll
-        const faders = document.querySelectorAll('.fade-in');
-        const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-        const appearOnScroll = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
+        <div class="project">
+            <h3>Password Auditor</h3>
+            <p>Evaluates password strength, identifies weak credentials, and simulates local breach checks.</p>
+            <a class="github-btn" href="https://github.com/oderindeisaiah/password_auditor" target="_blank">View on GitHub</a>
+        </div>
+
+        <div class="project">
+            <h3>File Encryptor</h3>
+            <p>Encrypts and decrypts local files securely using modern cryptographic techniques.</p>
+            <a class="github-btn" href="https://github.com/oderindeisaiah/file_encryptor" target="_blank">View on GitHub</a>
+        </div>
+
+        <div class="project">
+            <h3>Login Defender</h3>
+            <p>Protects accounts from brute-force attacks with login limits, time-based lockouts, and secure password handling.</p>
+            <a class="github-btn" href="https://github.com/oderindeisaiah/login_defender" target="_blank">View on GitHub</a>
+        </div>
+
+        <div class="project">
+            <h3>Password Hashing Tool</h3>
+            <p>Secure authentication system using SHA-256 hashing and persistent password storage.</p>
+            <a class="github-btn" href="https://github.com/oderindeisaiah/password-hashing-tool" target="_blank">View on GitHub</a>
+        </div>
+
+        <div class="project">
+            <h3>File Integrity Checker</h3>
+            <p>Monitors files for unauthorized changes using cryptographic hashing and audit logs.</p>
+            <a class="github-btn" href="https://github.com/oderindeisaiah/file-integrity-checker" target="_blank">View on GitHub</a>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact" class="fade">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:isaiaholuwasegunoderinde@gmail.com">isaiaholuwasegunoderinde@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/oderindeisaiah" target="_blank">github.com/oderindeisaiah</a></p>
+</section>
+
+<footer>
+    © 2026 Oderinde Isaiah Oluwasegun. All rights reserved.
+</footer>
+
+<script>
+    const elements = document.querySelectorAll('.fade');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
                 entry.target.classList.add('show');
-                observer.unobserve(entry.target);
-            });
-        }, appearOptions);
-        faders.forEach(fader => appearOnScroll.observe(fader));
-
-        // Typing animation for subtitle
-        const subtitle = document.querySelector('.subtitle');
-        const text = "Cybersecurity Enthusiast & Python Developer";
-        let index = 0;
-        function typeEffect() {
-            if(index < text.length){
-                subtitle.textContent += text.charAt(index);
-                index++;
-                setTimeout(typeEffect, 100);
             }
-        }
-        typeEffect();
-    </script>
+        });
+    }, { threshold: 0.1 });
+
+    elements.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
