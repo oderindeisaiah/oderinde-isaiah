@@ -1,403 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Oderinde Isaiah | Cybersecurity & Python Projects</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oderinde Isaiah | Cybersecurity & Python Projects</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0f1f;
+  --card: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #00ffff;
+  --accent-hover: #39ff14;
+  --border: #1f2937;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Poppins',sans-serif; background: linear-gradient(180deg, #0a0f1f, #020617); color: var(--text); line-height:1.5; scroll-behavior:smooth; }
+a { color: var(--accent); text-decoration:none; transition:color 0.3s; }
+a:hover { color: var(--accent-hover); }
+.container { width:90%; max-width:1100px; margin:auto; }
 
-  <style>
-    :root {
-      --bg: #0b0f14;
-      --card: #111827;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --accent: #38bdf8;
-      --border: #1f2937;
-      --hover-glow: rgba(56,189,248,0.3);
-    }
+header { min-height:90vh; display:flex; align-items:center; }
+.hero { display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:center; }
+.hero-text h1 { font-size:2.8rem; font-weight:700; background: linear-gradient(90deg, var(--accent), var(--accent-hover)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: gradientMove 5s ease infinite; }
+@keyframes gradientMove { 0%{background-position:0%;} 50%{background-position:100%;} 100%{background-position:0%;} }
+.hero-text p { margin-top:0.8rem; color: var(--muted); max-width:500px; opacity:0; transform:translateY(10px); transition: all 0.8s ease; }
+.hero-text p.visible { opacity:1; transform:translateY(0); }
+.hero-buttons { margin-top:1.5rem; display:flex; gap:1rem; flex-wrap:wrap; }
+.btn { padding:0.6rem 1.2rem; border-radius:6px; border:1px solid var(--border); background: var(--card); color: var(--text); cursor:pointer; transition: all 0.3s ease, box-shadow 0.4s; }
+.btn:hover { transform:translateY(-2px) scale(1.05); border-color: var(--accent); box-shadow: 0 8px 20px rgba(0,255,255,0.5); }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-    }
+section { padding:3rem 0; }
+.section-title { font-size:1.8rem; margin-bottom:0.8rem; opacity:0; transform:translateY(15px); transition:all 0.8s ease; }
+.section-title.visible { opacity:1; transform:translateY(0); }
+.section-subtitle { color:var(--muted); max-width:600px; margin-bottom:2rem; opacity:0; transform:translateY(15px); transition:all 0.8s ease; }
+.section-subtitle.visible { opacity:1; transform:translateY(0); }
 
-    body {
-      background: linear-gradient(180deg, #0b0f14, #020617);
-      color: var(--text);
-      line-height: 1.6;
-    }
+.about { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+.about-card { background: var(--card); padding:1.5rem; border-radius:10px; border:1px solid var(--border); transition: transform 0.3s, opacity 0.8s ease, transform 0.8s ease; opacity:0; transform:translateY(20px); }
+.about-card.visible { opacity:1; transform:translateY(0); }
+.about-card:hover { transform:translateY(-2px); }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+.skills { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; }
+.skill { background: var(--card); padding:1rem; border-radius:10px; border:1px solid var(--border); transition:transform 0.3s, opacity 0.8s ease, transform 0.8s ease; opacity:0; transform:translateY(20px); }
+.skill.visible { opacity:1; transform:translateY(0); }
+.skill:hover { transform:translateY(-3px) scale(1.02); }
+.skill h3 { margin-bottom:0.4rem; color: var(--accent); font-size:1.1rem; }
 
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: auto;
-    }
+.projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:15px; }
+.project { background-color: var(--card); padding:20px; border-radius:10px; transition:transform 0.3s, box-shadow 0.3s, border 0.3s, opacity 0.8s ease, transform 0.8s ease; position:relative; opacity:0; transform:translateY(20px); border:2px solid transparent; cursor:pointer; }
+.project.visible { opacity:1; transform:translateY(0); }
+.project:hover { transform:translateY(-6px) scale(1.02); box-shadow:0 12px 25px rgba(0,255,255,0.6); border-image: linear-gradient(90deg, var(--accent), var(--accent-hover)); border-image-slice:1; }
+.project h3 { margin-bottom:12px; color: var(--accent); font-size:1.1rem; }
+.github-btn { display:inline-block; margin-top:10px; padding:6px 12px; background-color: var(--accent); color:white; font-weight:600; border-radius:6px; transition: background-color 0.3s; text-decoration:none; }
+.github-btn:hover { background-color: var(--accent-hover); }
 
-    /* ================= FADE-IN ================= */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-    .fade-in.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+.filter-search { display:flex; flex-wrap:wrap; gap:0.8rem; margin-bottom:1.5rem; }
+.filter-search input, .filter-search select { padding:0.6rem 0.9rem; border-radius:6px; border:1px solid var(--border); background: var(--card); color: var(--text); transition: box-shadow 0.3s; }
+.filter-search input:focus, .filter-search select:focus { outline:none; box-shadow:0 0 8px var(--accent); }
 
-    /* ================= HEADER / HERO ================= */
-    header {
-      min-height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 3rem 1rem;
-      background: linear-gradient(135deg, #111827, #1e1e2f);
-      border-bottom: 1px solid var(--border);
-    }
+.project-counter { margin-bottom:1rem; font-weight:600; color: var(--accent); transition: all 0.5s ease; }
 
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
+footer { padding:1.5rem 0; border-top:1px solid var(--border); text-align:center; color:var(--muted); font-size:0.85rem; }
 
-    header h1 span {
-      color: var(--accent);
-    }
+/* Desktop & Tablet Responsiveness */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr; text-align:center;} 
+  .hero-buttons{justify-content:center;} 
+  .about{grid-template-columns:1fr;} 
+  .filter-search{flex-direction:column;}
+}
 
-    header p {
-      color: var(--muted);
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto 2rem;
-      min-height: 1.4em;
-    }
+/* Mobile Optimization */
+@media (max-width:768px){
+  body { font-size: 14px; }
+  .hero-text h1 { font-size: 2rem; }
+  .hero-text p { font-size: 0.95rem; }
+  .hero-buttons .btn { padding: 0.5rem 1rem; font-size: 0.9rem; }
+  .about, .skills, .projects { gap: 12px; }
+  .about-card, .skill, .project { padding: 12px; font-size: 0.9rem; }
+  .section-title { font-size: 1.5rem; }
+  .section-subtitle { font-size: 0.9rem; }
+  .filter-search input, .filter-search select { font-size: 0.9rem; padding: 0.5rem 0.7rem; }
+}
 
-    .btn {
-      padding: 0.7rem 1.4rem;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      color: var(--text);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin: 0.3rem;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      border-color: var(--accent);
-      box-shadow: 0 0 15px var(--hover-glow);
-    }
-
-    /* ================= SECTIONS ================= */
-    section {
-      padding: 4rem 0;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      text-align: center;
-      color: var(--accent);
-    }
-
-    .section-subtitle {
-      color: var(--muted);
-      max-width: 600px;
-      margin: 0 auto 3rem;
-      text-align: center;
-      min-height: 1.4em;
-    }
-
-    /* ================= ABOUT ================= */
-    .about {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-      gap: 2rem;
-    }
-
-    .about-card {
-      background: var(--card);
-      padding: 2rem;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      transition: transform 0.3s ease;
-    }
-
-    .about-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 15px var(--hover-glow);
-    }
-
-    /* ================= SKILLS ================= */
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-      gap: 1.5rem;
-    }
-
-    .skill {
-      background: var(--card);
-      padding: 1.5rem;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .skill:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 15px var(--hover-glow);
-    }
-
-    .skill h3 {
-      margin-bottom: 0.5rem;
-      color: var(--accent);
-    }
-
-    /* ================= PROJECTS ================= */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-
-    .project {
-      background-color: var(--card);
-      padding: 25px;
-      border-radius: 12px;
-      transition: transform 0.4s, box-shadow 0.4s, border 0.4s, opacity 0.8s;
-      position: relative;
-      border: 1px solid var(--border);
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    .project.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .project:hover {
-      transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 15px 30px var(--hover-glow);
-      border: 1px solid var(--accent);
-    }
-
-    .project h3 {
-      margin-bottom: 15px;
-    }
-
-    .github-btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 8px 14px;
-      background-color: var(--accent);
-      color: white;
-      font-weight: 600;
-      border-radius: 6px;
-      transition: background-color 0.3s, box-shadow 0.3s;
-      text-decoration: none;
-    }
-
-    .github-btn:hover {
-      background-color: #0ea5e9;
-      box-shadow: 0 0 15px var(--hover-glow);
-    }
-
-    /* ================= FOOTER ================= */
-    footer {
-      padding: 2rem 0;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    /* ================= RESPONSIVE ================= */
-    @media (max-width: 900px) {
-      .about {
-        grid-template-columns: 1fr;
-      }
-      .skills {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+@media (max-width:480px){
+  .hero-text h1 { font-size: 1.6rem; }
+  .hero-text p { font-size: 0.85rem; }
+  .btn { padding: 0.45rem 0.85rem; font-size: 0.85rem; }
+  .section-title { font-size: 1.3rem; }
+  .section-subtitle { font-size: 0.85rem; }
+  .about-card, .skill, .project { padding: 10px; font-size: 0.85rem; }
+}
+</style>
 </head>
 <body>
 
-  <!-- ================= HERO ================= -->
-  <header class="fade-in">
-    <div class="container">
-      <h1>Hi, I'm <span>Oderinde Isaiah</span></h1>
-      <p id="typing-subtitle" class="section-subtitle"></p>
-      <div>
+<header role="banner">
+  <div class="container hero">
+    <div class="hero-text">
+      <h1>Hi, I'm Oderinde Isaiah Oluwasegun..............</h1>
+      <p id="hero-subtitle">Cybersecurity focused Python developer building defensive security tools, intrusion detection systems, and real world security automation projects.</p>
+      <div class="hero-buttons">
         <a href="#projects" class="btn">View Projects</a>
-        <a href="https://github.com/oderindeisaiah" class="btn" target="_blank">GitHub</a>
+        <a href="https://github.com/oderindeisaiah" class="btn" target="_blank" aria-label="GitHub Profile">GitHub</a>
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
-  <!-- ================= ABOUT ================= -->
-  <section class="fade-in">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <p class="section-subtitle">
-        Passionate about cybersecurity, blue team operations, and building practical tools that simulate real-world attacks and defenses.
-      </p>
+<section id="portfolio-summary">
+  <div class="container">
+    <h2 class="section-title">Portfolio Summary</h2>
+    <p class="section-subtitle">A quick overview of my expertise, projects, and professional focus.</p>
+    <div class="about" style="grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:1rem;">
+      <div class="about-card"><h3>Total Projects</h3><p>8 active cybersecurity and Python projects, all hosted on GitHub with full code access.</p></div>
+      <div class="about-card"><h3>Core Skills</h3><p>Python, Cybersecurity, Security Automation, File Encryption & Integrity, System Hardening.</p></div>
+      <div class="about-card"><h3>License</h3><p>All projects and portfolio content are under Apache License 2.0.</p></div>
+      <div class="about-card"><h3>Professional Focus</h3><p>Developing secure, reliable, and automated security solutions for real world applications.</p></div>
+    </div>
+  </div>
+</section>
 
-      <div class="about">
-        <div class="about-card fade-in">
-          <h3>What I Do</h3>
-          <p>
-            I design and build Python-based security tools such as intrusion detection systems,
-            log analyzers, authentication defense mechanisms, and cryptographic utilities.
-          </p>
-        </div>
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">About Me</h2>
+    <p class="section-subtitle">I’m Oderinde Isaiah, a cybersecurity focused Python developer. I build intrusion detection systems, defensive security tools, and automation scripts that enhance system security and reliability.</p>
+    <div class="about">
+      <div class="about-card"><h3>Education</h3><p>Currently a student, continuously learning and applying Python and cybersecurity skills to real world projects.</p></div>
+      <div class="about-card"><h3>Experience</h3><p>Developed multiple security focused Python tools and automation scripts, including file integrity checkers, password auditors, and login defense systems.</p></div>
+    </div>
+  </div>
+</section>
 
-        <div class="about-card fade-in">
-          <h3>My Focus</h3>
-          <p>
-            Defensive security, threat detection, log analysis, incident response logic,
-            and creating portfolio-grade security projects that mirror SOC environments.
-          </p>
-        </div>
+<section id="skills">
+  <div class="container">
+    <h2 class="section-title">Core Skills</h2>
+    <p class="section-subtitle">A snapshot of my technical abilities and cybersecurity expertise.</p>
+    <div class="skills">
+      <div class="skill"><h3>Python</h3><p>Expert in building automation scripts, security tools, and backend solutions.</p></div>
+      <div class="skill"><h3>Cybersecurity</h3><p>Knowledgeable in intrusion detection, password security, and system hardening.</p></div>
+      <div class="skill"><h3>Security Automation</h3><p>Experience automating security tasks, log analysis, and vulnerability detection.</p></div>
+      <div class="skill"><h3>File Encryption & Integrity</h3><p>Skilled in creating secure file storage, encryption, and integrity verification tools.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title">Projects</h2>
+    <p class="section-subtitle">Portfolio projects showcasing Python, cybersecurity, and automation work.</p>
+
+    <div class="project-counter" id="project-counter">Showing 0 of 8 projects</div>
+
+    <div class="filter-search">
+      <input type="text" id="search" placeholder="Search projects..." aria-label="Search projects"/>
+      <select id="tag-filter" aria-label="Filter projects by tag">
+        <option value="all">All Tags</option>
+        <option value="python">Python</option>
+        <option value="security">Security</option>
+        <option value="automation">Automation</option>
+      </select>
+    </div>
+
+    <div class="projects" id="projects-grid">
+      <div class="project" data-tags="python,security">
+        <h3>1. File Encryptor</h3>
+        <p>Encrypts and decrypts files using secure algorithms to maintain confidentiality of sensitive data.</p>
+        <a href="https://github.com/oderindeisaiah/file_encryptor" target="_blank" class="github-btn">GitHub</a>
+      </div>
+      <div class="project" data-tags="python,security,automation">
+        <h3>2. File Integrity Checker</h3>
+        <p>Python tool to monitor file integrity and alert on unauthorized changes or tampering.</p>
+        <a href="https://github.com/oderindeisaiah/file-integrity-checker" target="_blank" class="github-btn">GitHub</a>
+      </div>
+      <div class="project" data-tags="python,security">
+        <h3>3. Login Defender</h3>
+        <p>Python based defense mechanism to prevent brute force attacks and unauthorized login attempts.</p>
+        <a href="https://github.com/oderindeisaiah/login_defender" target="_blank" class="github-btn">GitHub</a>
+      </div>
+      <div class="project" data-tags="python,security">
+        <h3>4. Mini IDS</h3>
+        <p>Minimal Intrusion Detection System implemented in Python for monitoring unauthorized access attempts.</p>
+        <a href="https://github.com/oderindeisaiah/mini_ids" target="_blank" class="github-btn">GitHub</a>
+      </div>
+      <div class="project" data-tags="python,security">
+        <h3>5. Password Auditor</h3>
+        <p>Audits password strength and common vulnerabilities across accounts to ensure secure authentication.</p>
+        <a href="https://github.com/oderindeisaiah/password_auditor" target="_blank" class="github-btn">GitHub</a>
+      </div>
+      <div class="project" data-tags="python,security">
+        <h3>6. Password Hashing Tool</h3>
+        <p>Tool for securely hashing passwords using modern algorithms to enhance application security.</p>
+        <a href="https://github.com/oderindeisaiah/password-hashing-tool" target="_blank" class="github-btn">GitHub</a>
+      </div>
+      <div class="project" data-tags="python,security,automation">
+        <h3>7. Secure Notes Vault</h3>
+        <p>Encrypted secure notes vault in Python for confidential note storage with password protection.</p>
+        <a href="https://github.com/oderindeisaiah/secure-notes-vault" target="_blank" class="github-btn">GitHub</a>
+      </div>
+      <div class="project" data-tags="python,security,automation">
+        <h3>8. Security Log Analyzer</h3>
+        <p>Analyzes system and application logs to detect security incidents and anomalies automatically.</p>
+        <a href="https://github.com/oderindeisaiah/security_log_analyzer" target="_blank" class="github-btn">GitHub</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ================= SKILLS ================= -->
-  <section class="fade-in">
-    <div class="container">
-      <h2 class="section-title">Core Skills</h2>
-      <p class="section-subtitle">
-        Tools, technologies, and security concepts I actively work with.
-      </p>
+<footer>
+  &copy; 2026 Oderinde Isaiah. All rights reserved.
+</footer>
 
-      <div class="skills">
-        <div class="skill fade-in">
-          <h3>Python</h3>
-          <p>Security automation, log analysis, IDS logic, encryption utilities.</p>
-        </div>
+<script>
+// Scroll reveal
+const revealElements = document.querySelectorAll('.section-title, .section-subtitle, .about-card, .skill, .project, .hero-text p');
+const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold:0.2 });
+revealElements.forEach(el => observer.observe(el));
 
-        <div class="skill fade-in">
-          <h3>Cybersecurity</h3>
-          <p>Intrusion detection, brute-force detection, credential stuffing defense.</p>
-        </div>
+// Hero typing effect
+const heroP = document.getElementById('hero-subtitle');
+let text = heroP.textContent; heroP.textContent=''; let i=0;
+function typeWriter(){ if(i<text.length){ heroP.textContent+=text.charAt(i); i++; setTimeout(typeWriter,30); } else { heroP.classList.add('visible'); } }
+setTimeout(typeWriter,300);
 
-        <div class="skill fade-in">
-          <h3>Blue Team</h3>
-          <p>Monitoring, alerting, severity classification, incident simulation.</p>
-        </div>
-
-        <div class="skill fade-in">
-          <h3>Git & GitHub</h3>
-          <p>Version control, clean repos, documentation, portfolio management.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================== -->
-  <!-- ================= PROJECTS SECTION ================= -->
-  <!-- ⚠️ DO NOT MODIFY – PROJECTS ARE EXACTLY AS YOU WANT ⚠️ -->
-  <!-- ===================================================== -->
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title">Projects</h2>
-      <div class="projects">
-        <div class="project">
-            <h3>mini_ids</h3>
-            <p>Detects brute-force and credential stuffing attacks. Classifies threats by severity and logs alerts.</p>
-            <a class="github-btn" href="https://github.com/oderindeisaiah/mini_ids" target="_blank">View on GitHub</a>
-        </div>
-        <div class="project">
-            <h3>security_log_analyzer</h3>
-            <p>Parses authentication logs, identifies suspicious activity, and generates actionable alerts.</p>
-            <a class="github-btn" href="https://github.com/oderindeisaiah/security_log_analyzer" target="_blank">View on GitHub</a>
-        </div>
-        <div class="project">
-            <h3>secure-notes-vault</h3>
-            <p>Encrypted local storage for sensitive notes. Password-protected access ensures privacy.</p>
-            <a class="github-btn" href="https://github.com/oderindeisaiah/secure-notes-vault" target="_blank">View on GitHub</a>
-        </div>
-        <div class="project">
-            <h3>password_auditor</h3>
-            <p>Evaluates password strength, identifies weak credentials, and simulates breach checks locally.</p>
-            <a class="github-btn" href="https://github.com/oderindeisaiah/password_auditor" target="_blank">View on GitHub</a>
-        </div>
-        <div class="project">
-            <h3>file_encryptor</h3>
-            <p>Encrypts and decrypts files locally using AES. Secure handling and easy workflow.</p>
-            <a class="github-btn" href="https://github.com/oderindeisaiah/file_encryptor" target="_blank">View on GitHub</a>
-        </div>
-        <div class="project">
-            <h3>login_defender</h3>
-            <p>Protects accounts from brute force attacks with login limits, time-based logouts, and secure password storage.</p>
-            <a class="github-btn" href="https://github.com/oderindeisaiah/login_defender" target="_blank">View on GitHub</a>
-        </div>
-        <div class="project">
-            <h3>password-hashing-tool</h3>
-            <p>Secure password authentication system with SHA-256 hashing, limited login attempts, and persistent storage.</p>
-            <a class="github-btn" href="https://github.com/oderindeisaiah/password-hashing-tool" target="_blank">View on GitHub</a>
-        </div>
-        <div class="project">
-            <h3>file-integrity-checker</h3>
-            <p>Monitors files for changes using SHA-256 hashes and logs modifications for auditing purposes.</p>
-            <a class="github-btn" href="https://github.com/oderindeisaiah/file-integrity-checker" target="_blank">View on GitHub</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ===================================================== -->
-  <!-- ================= END PROJECTS ===================== -->
-  <!-- ===================================================== -->
-
-  <!-- ================= FOOTER ================= -->
-  <footer>
-    <div class="container">
-      <p>© 2026 Oderinde Isaiah. Built with focus, discipline, and growth.</p>
-    </div>
-  </footer>
-
-  <script>
-    // ================= TYPING HERO SUBTITLE =================
-    const subtitleEl = document.getElementById('typing-subtitle');
-    const subtitleText = "Cybersecurity Enthusiast & Python Developer | IDS & Security Tool Builder";
-    let subtitleIndex = 0;
-    function typeSubtitle() {
-      if(subtitleIndex < subtitleText.length){
-        subtitleEl.textContent += subtitleText.charAt(subtitleIndex);
-        subtitleIndex++;
-        setTimeout(typeSubtitle, 80);
-      }
-    }
-    typeSubtitle();
-
-    // ================= FADE-IN ON SCROLL =================
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if(!entry.isIntersecting) return;
-        entry.target.classList.add('show');
-        observer.unobserve(entry.target);
-      });
-    }, appearOptions);
-    faders.forEach(fader => appearOnScroll.observe(fader));
-
-    // ================= FADE-IN PROJECTS =================
-    const projectCards = document.querySelectorAll('.project');
-    projectCards.forEach(card => appearOnScroll.observe(card));
-  </script>
-
+// Project search & filter
+const searchInput = document.getElementById('search');
+const tagFilter = document.getElementById('tag-filter');
+const projects = document.querySelectorAll('.project');
+const counter = document.getElementById('project-counter');
+function updateProjects(){
+  const search = searchInput.value.toLowerCase();
+  const tag = tagFilter.value.toLowerCase();
+  let visibleCount=0;
+  projects.forEach(project=>{
+    const title=project.querySelector('h3').textContent.toLowerCase();
+    const desc=project.querySelector('p').textContent.toLowerCase();
+    const tags=project.dataset.tags.toLowerCase();
+    const matchesSearch=title.includes(search)||desc.includes(search);
+    const matchesTag=tag==='all'||tags.includes(tag);
+    if(matchesSearch&&matchesTag){ project.style.display='block'; visibleCount++; project.classList.add('visible'); }
+    else{ project.style.display='none'; project.classList.remove('visible'); }
+  });
+  counter.textContent = `Showing ${visibleCount} of ${projects.length} projects`;
+}
+searchInput.addEventListener('input', updateProjects);
+tagFilter.addEventListener('change', updateProjects);
+updateProjects();
+</script>
 </body>
 </html>
